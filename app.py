@@ -5,8 +5,19 @@ from datetime import datetime, timedelta, date
 
 # --- 1. DATABASE CONNECTION ---
 def get_connection():
-    conn_str = "postgresql://postgres.cvmuxfdixhtbuuxcijl:M198961Asik%21@aws-1-ap-southeast-1.pooler.supabase.com:5432/postgres?sslmode=require"
-    return psycopg2.connect(conn_str)
+    try:
+        # Apnar deya Session Pooler details onujayi
+        user = "postgres.cvmuxfdixhtbuuxqcijl"
+        password = "M198961Asik%21"  # M198961Asik! encoded
+        host = "aws-1-ap-southeast-1.pooler.supabase.com"
+        port = "5432"
+        dbname = "postgres"
+        
+        conn_str = f"postgresql://{user}:{password}@{host}:{port}/{dbname}?sslmode=require"
+        return psycopg2.connect(conn_str)
+    except Exception as e:
+        st.error(f"❌ Database Connection Error: {e}")
+        return None
 
 # --- 2. HELPERS ---
 def get_roster_dates(target_month, target_year):
