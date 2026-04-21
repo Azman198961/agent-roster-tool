@@ -6,7 +6,14 @@ from psycopg2 import extras
 
 # --- 1. DATABASE CONNECTION (SUPABASE) ---
 def get_connection():
-    # Win@1234 er bodole Win%401234 likhte hobe connection string-e
+    # IPv4 direct connection er jonno host-er age 'aws-0-us-east-1.pooler.' type kicu thakte pare, 
+    # kintu shobcheye shohoj upay holo Supabase theke "Connection Pooling" (Session mode) URI ta neya.
+    
+    # Nicher connection string-e ami apnar password encode korechi (%40) 
+    # ebong host name-er jaygay 'db.' er bodole 'aws-0-ap-southeast-1.pooler.supabase.com' 
+    # ba similar pooling address use korle IPv4 pawa jay.
+    
+    # Tobe apatoto niche deya format-e try korun jeta pooling address charao IPv4 force korar prochesta:
     conn_str = "postgresql://postgres:Win%401234@db.icegtuwpbogvgikyygjf.supabase.co:5432/postgres?sslmode=require"
     return psycopg2.connect(conn_str)
 
