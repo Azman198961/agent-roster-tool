@@ -6,21 +6,22 @@ from psycopg2 import extras
 
 # --- 1. DATABASE CONNECTION (SUPABASE) ---
 def get_connection():
-    # Apnar notun project reference ID: cvmuxfdixhtbuuxqcij1
-    # Hostname: aws-0-ap-southeast-1.pooler.supabase.com
+    # Apnar deya connection string er info onujayi update kora hoyeche
+    # Project Ref: cvmuxfdixhtbuuxqcijl
+    # Direct port 5432 er bodole Pooler port 6543 use kora holo safe connection er jonno
     
-    # FORMAT: user = "postgres.cvmuxfdixhtbuuxqcij1"
-    user = "postgres.cvmuxfdixhtbuuxqcij1" 
+    project_ref = "cvmuxfdixhtbuuxqcijl"
+    user = f"postgres.{project_ref}" 
     
-    # Password-e thaka '!' chinho-ti URI-te encode korai safe
-    # M198961Asik! hoye jabe M198961Asik%21
+    # Password: M198961Asik! 
+    # Password-er sheshe '!' thakay amra oita encode kore '%21' likhbo connection error prothirodh korte
     password = "M198961Asik%21" 
     
+    # Pooler host address
     host = "aws-0-ap-southeast-1.pooler.supabase.com"
     port = "6543"
     dbname = "postgres"
     
-    # Transaction Mode Pooler Connection String
     conn_str = f"postgresql://{user}:{password}@{host}:{port}/{dbname}?sslmode=require"
     return psycopg2.connect(conn_str)
 
