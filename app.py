@@ -6,8 +6,8 @@ from psycopg2 import extras
 
 # --- 1. DATABASE CONNECTION (SUPABASE) ---
 def get_connection():
-    # Apnar host ar password ekhane set kora holo
-    conn_str = "postgresql://postgres:Win@1234@db.icegtuwpbogvgikyygjf.supabase.co:5432/postgres"
+    # Win@1234 er bodole Win%401234 likhte hobe connection string-e
+    conn_str = "postgresql://postgres:Win%401234@db.icegtuwpbogvgikyygjf.supabase.co:5432/postgres?sslmode=require"
     return psycopg2.connect(conn_str)
 
 # --- 2. LOGIC: DATE GENERATOR (21st to 20th) ---
