@@ -6,13 +6,13 @@ from psycopg2 import extras
 
 # --- 1. DATABASE CONNECTION (SUPABASE) ---
 def get_connection():
-    # Session Pooler URI:
-    # 1. Host-er age 'aws-0-ap-southeast-1.pooler.' thake (Supabase default for this region)
-    # 2. User name format: [original_user].[project_ref]
-    # 3. Port: 6543 (Pooler er port 6543 hoy, 5432 na)
+    # 'FATAL: Tenant or user not found' mane user format-e vul ache.
+    # Pooler-er khetre user hobe: [Project_Ref].[User]
+    # Apnar Project Ref: icegtuwpbogvgikyygjf
     
-    user = "postgres.icegtuwpbogvgikyygjf"
-    password = "Win%401234" # @ ke %40 encode kora hoyeche
+    # FORMAT: project_ref.postgres
+    user = "icegtuwpbogvgikyygjf.postgres" 
+    password = "Win%401234"
     host = "aws-0-ap-southeast-1.pooler.supabase.com"
     port = "6543"
     dbname = "postgres"
