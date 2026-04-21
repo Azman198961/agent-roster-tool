@@ -4,13 +4,18 @@ import psycopg2
 from datetime import datetime, timedelta, date
 
 # --- 1. DATABASE CONNECTION ---
-def get_connection():
-    try:
-        conn_str = "postgresql://postgres.cvmuxfdixhtbuuxcijl:M198961Asik%21@aws-1-ap-southeast-1.pooler.supabase.com:6543/postgres?sslmode=require"
-        return psycopg2.connect(conn_str)
-    except Exception as e:
-        st.error(f"Database Connection Error: {e}")
-        return None
+ddef get_connection():
+    # Session Pooler Details (IPv4 Compatible)
+    user = "postgres.cvmuxfdixhtbuuxqcijl"
+    password = "M198961Asik%21"  # Password: M198961Asik!
+    host = "aws-1-ap-southeast-1.pooler.supabase.com"
+    port = "5432"  # Apnar deya notun port
+    dbname = "postgres"
+    
+    # Final URI string
+    conn_str = f"postgresql://{user}:{password}@{host}:{port}/{dbname}?sslmode=require"
+    
+    return psycopg2.connect(conn_str)
 
 # --- 2. LOGIN LOGIC ---
 if 'logged_in' not in st.session_state:
