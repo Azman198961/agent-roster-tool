@@ -6,13 +6,13 @@ from psycopg2 import extras
 
 # --- 1. DATABASE CONNECTION (SUPABASE) ---
 def get_connection():
-    # 'FATAL: Tenant or user not found' mane user format-e vul ache.
-    # Pooler-er khetre user hobe: [Project_Ref].[User]
-    # Apnar Project Ref: icegtuwpbogvgikyygjf
+    # Updated Connection Settings for project 'CX Roster'
+    project_ref = "cvmuxfdixhtbuuxqcij1"
     
-    # FORMAT: project_ref.postgres
-    user = "icegtuwpbogvgikyygjf.postgres" 
-    password = "Win%401234"
+    # Supabase Transaction Pooler (IPv4 compatible)
+    user = f"postgres.{project_ref}" 
+    # Password-e special character thakle eivabe string formatting kora safe
+    password = "M198961Asik!" 
     host = "aws-0-ap-southeast-1.pooler.supabase.com"
     port = "6543"
     dbname = "postgres"
