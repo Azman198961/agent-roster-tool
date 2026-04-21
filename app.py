@@ -5,15 +5,9 @@ from datetime import datetime, timedelta, date
 
 # --- 1. DATABASE CONNECTION ---
 def get_connection():
-    # Apnar notun project ref: cvmuxfdixhtbuuxcijl
-    # User format obosshoi 'postgres.project_ref' hote hobe
-    user = "postgres.cvmuxfdixhtbuuxcijl"
-    password = "M198961Asik%21" # Password encode kora hoyeche
-    host = "aws-1-ap-southeast-1.pooler.supabase.com"
-    port = "6543"
-    dbname = "postgres"
-    
-    conn_str = f"postgresql://{user}:{password}@{host}:{port}/{dbname}?sslmode=require"
+    # Apnar Transaction Pooler Address onujayi updated
+    # Password: M198961Asik! -> encoded as M198961Asik%21
+    conn_str = "postgresql://postgres.cvmuxfdixhtbuuxcijl:M198961Asik%21@aws-1-ap-southeast-1.pooler.supabase.com:6543/postgres?sslmode=require"
     return psycopg2.connect(conn_str)
 
 # --- 2. LOGIC: DATE GENERATOR (21st to 20th) ---
