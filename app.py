@@ -18,16 +18,13 @@ def get_connection():
         return None
 
 # --- NEW: LOGGING FUNCTION ---
-def log_activity(user_identity, action):
-    try:
-        conn_log = get_connection()
-        cur = conn_log.cursor()
-        cur.execute("INSERT INTO activity_logs (user_identity, action_details) VALUES (%s, %s)", (user_identity, action))
-        conn_log.commit()
-        cur.close()
-        conn_log.close()
-    except Exception as e:
-        print(f"Logging error: {e}")
+elif page == "6. Activity Log":
+        st.header("📜 System Activity Log")
+        try:
+            logs = pd.read_sql("SELECT user_identity as User, action_details as Action, action_time as Time FROM activity_logs ORDER BY action_time DESC LIMIT 100", conn)
+            st.dataframe(logs, use_container_width=True)
+        except Exception as e:
+            st.error("⚠️ Activity log table find করা যাচ্ছে না। দয়া করে ডাটাবেসে 'activity_logs' টেবিলটি তৈরি করুন।")
 
 # --- 2. HELPERS ---
 def get_roster_dates(target_month, target_year):
